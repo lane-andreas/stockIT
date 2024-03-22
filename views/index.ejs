@@ -33,7 +33,7 @@
     <h2 class="losers" data-selected="false">TOP LOSERS</h2>
     <h2 class="active" data-selected="false">MOST ACTIVELY TRADED</h2>
     <div class="container">
-      <% if (gainers = []) { %>
+      <% if (gainers == []) { %>
       <p id="error-message">API LIMIT REACHED<br><span>TRY AGAIN IN 24H</span></p>
       <% } %>
       <table>
