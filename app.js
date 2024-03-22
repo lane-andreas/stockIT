@@ -41,39 +41,49 @@ app.get("/stockit", (req, res) => {
 app.get("/stockit/ticker", (req, res) => {
   const { symbol } = req.query;
   fetch(
-    `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${symbol}&apikey=${apiKey}`
+    `https://www.alphavantage.co/query?function=OVERVIEW&symbol=ibm&apikey=demo`
   )
     .then((response) => response.json())
     .then((data) => {
-      let {
-        Name,
-        Description,
-        Exchange,
-        Sector,
-        Industry,
-        MarketCapitalization,
-        EPS,
-        ProfitMargin,
-        TrailingPE,
-        ForwardPE,
-        SharesOutstanding,
-        DividendDate,
-      } = data;
-      res.render("ticker", {
-        symbol,
-        Name,
-        Description,
-        Exchange,
-        Sector,
-        Industry,
-        MarketCapitalization,
-        EPS,
-        ProfitMargin,
-        TrailingPE,
-        ForwardPE,
-        SharesOutstanding,
-        DividendDate,
-      });
+      if (data.hasOwnProperty("Name")) {
+        let errorMessage = "";
+        let {
+          Symbol,
+          Name,
+          Description,
+          Exchange,
+          Sector,
+          Industry,
+          MarketCapitalization,
+          EPS,
+          ProfitMargin,
+          TrailingPE,
+          ForwardPE,
+          SharesOutstanding,
+          DividendDate,
+        } = data;
+        res.render("ticker", {
+          Symbol,
+          Name,
+          Description,
+          Exchange,
+          Sector,
+          Industry,
+          MarketCapitalization,
+          EPS,
+          ProfitMargin,
+          TrailingPE,
+          ForwardPE,
+          SharesOutstanding,
+          DividendDate,
+          errorMessage,
+        });
+      } else {
+        res.render("ticker", {
+          errorMessage: "Data not found or API limit reached.",
+          Symbol: "OVERVIEW",
+        });
+      }
     })
     .catch((error) => {
       console.error("Error fetching data: ", error);

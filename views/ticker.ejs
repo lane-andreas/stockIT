@@ -24,7 +24,29 @@
   </nav>
 
   <section id="overview">
-    <h2>IBM</h2>
+    <h2><%= Symbol %></h2>
+    <div class="container">
+      <% if (errorMessage) { %>
+      <p id="error"><%= errorMessage %></p>
+      <% } else { %>
+      <div id="tags">
+        <p><span>Exchange:</span> <%= Exchange %></p>
+        <p><span>Sector:</span> <%= Sector %></p>
+        <p><span>Industry:</span> <%= Industry %></p>
+        <p><span>Market Cap:</span> <%= MarketCapitalization %></p>
+        <p><span>EPS:</span> <%= EPS %></p>
+        <p><span>Profit Margin:</span> <%= ProfitMargin %></p>
+        <p><span>Shares Outstanding:</span> <%= SharesOutstanding %></p>
+        <p><span>Divdend Date:</span> <%= DividendDate %></p>
+        <p><span>Trailing PE:</span> <%= TrailingPE %></p>
+        <p><span>Forward PE:</span> <%= ForwardPE %></p>
+      </div>
+      <div id="desc">
+        <h3><%= Name %></h3>
+        <p><%= Description %></p>
+      </div>
+      <% }  %>
+    </div>
   </section>
 
   <script src="/data.js"></script>

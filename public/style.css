@@ -16,6 +16,25 @@
   font-weight: 700;
   letter-spacing: -0.05ch;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--white);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
 html {
   scroll-behavior: smooth;
 }
@@ -224,6 +243,11 @@ header {
     font-size: 1.5em;
     font-weight: 400;
     line-height: 1em;
+    background-color: var(--white);
+    width: 100%;
+    padding: 5em 0;
+    border-radius: 0.5em;
+    white-space: nowrap;
   }
   #error-message span {
     font-size: 0.8em;
@@ -284,16 +308,35 @@ header {
     position: relative;
     height: 20em;
     width: 100%;
-  }
-  & tbody:not(:first-of-type)::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: var(--white);
+    z-index: 2;
     border-radius: 0.5em;
-    height: 100%;
-    width: 100%;
+    background-color: var(--white);
+  }
+  & td:not(:first-child) {
+    width: 15ch;
+  }
+
+  & td {
+    padding: 0 1em;
+    text-align: right;
+    font-weight: 400;
+  }
+  & th {
+    padding: 0 1em;
+    text-align: right;
+  }
+  & td:first-child,
+  th:first-child {
+    text-align: left;
+  }
+  & tr:not(.table-headers):hover {
+    background-color: var(--grey-l);
+  }
+  .negative {
+    color: #e10000;
+  }
+  .positive {
+    color: var(--primary);
   }
 }
 
@@ -482,5 +525,60 @@ header {
     & footer p {
       padding: 0 !important;
     }
+  }
+}
+
+#overview {
+  margin-top: 3em;
+  padding: 1em;
+  position: relative;
+  background: linear-gradient(var(--primary), var(--accent));
+  border-top-left-radius: 1.5em;
+  border-top-right-radius: 1.5em;
+  z-index: 10;
+  min-height: calc(100vh - 3em);
+  min-height: calc(100lvh - 3em);
+  color: var(--white);
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: min(1200px, 100%);
+    min-height: 15em;
+    margin-inline: auto;
+    background-color: var(--white);
+    color: var(--black);
+    border-radius: 0.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+  }
+  #tags {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 0.3em;
+    margin-bottom: 3em;
+  }
+  #tags p {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 0.5em;
+    width: fit-content;
+    border-radius: 0.4em;
+    font-weight: 400;
+  }
+  & p {
+    font-size: 0.7em;
+    font-weight: 400;
+  }
+  & h2 {
+    text-transform: uppercase;
+    position: relative;
+    font-size: 3em;
+    margin-bottom: 0.3em;
+    text-align: center;
+  }
+  #error {
+    margin: auto;
   }
 }

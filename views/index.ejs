@@ -33,12 +33,14 @@
     <h2 class="losers" data-selected="false">TOP LOSERS</h2>
     <h2 class="active" data-selected="false">MOST ACTIVELY TRADED</h2>
     <div class="container">
-      <% if (gainers == []) { %>
-      <p id="error-message">API LIMIT REACHED<br><span>TRY AGAIN IN 24H</span></p>
-      <% } %>
+      <% if (gainers.length === 0) { %>
+      <div id="error-message">
+        <p>API LIMIT REACHED<br><span>TRY AGAIN IN 24H</span></p>
+      </div>
+      <% }; %>
       <table>
         <tbody>
-          <tr>
+          <tr class="table-headers">
             <th>TICKER</th>
             <th>PRICE</th>
             <th>24H CHANGE</th>
@@ -50,7 +52,7 @@
           <tr data-ticker="<%= stock.ticker %>" class="ticker">
             <td><%= stock.ticker %></td>
             <td><%= stock.price %></td>
-            <td><%= stock.change_percentage %></td>
+            <td class="<%= stock.change_percentage < 0 ? 'negative' : 'positive' %>"><%= stock.change_percentage %></td>
             <td><%= stock.volume %></td>
           </tr>
           <% }); %>
@@ -60,7 +62,7 @@
           <tr data-ticker="<%= stock.ticker %>" class="ticker">
             <td><%= stock.ticker %></td>
             <td><%= stock.price %></td>
-            <td><%= stock.change_percentage %></td>
+            <td class="<%= stock.change_percentage < 0 ? 'negative' : 'positive' %>"><%= stock.change_percentage %></td>
             <td><%= stock.volume %></td>
           </tr>
           <% }); %>
@@ -70,7 +72,7 @@
           <tr data-ticker="<%= stock.ticker %>" class="ticker">
             <td><%= stock.ticker %></td>
             <td><%= stock.price %></td>
-            <td><%= stock.change_percentage %></td>
+            <td class="<%= stock.change_percentage < 0 ? 'negative' : 'positive' %>"><%= stock.change_percentage %></td>
             <td><%= stock.volume %></td>
           </tr>
           <% }); %>
