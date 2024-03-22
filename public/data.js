@@ -26,3 +26,22 @@ document.addEventListener("mousemove", function (e) {
     follower.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0px)`;
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Flag to track menu state
+  let menuVisible = false;
+
+  // Get the elements
+  const menuToggle = document.getElementById("menu-toggle");
+  const nav = document.querySelector("nav");
+
+  // Click event listener
+  menuToggle.addEventListener("click", function () {
+    if (menuVisible) {
+      nav.style.translate = ""; // Hide the menu
+    } else {
+      nav.style.translate = "0"; // Show the menu
+    }
+    menuVisible = !menuVisible; // Toggle the state
+  });
+});

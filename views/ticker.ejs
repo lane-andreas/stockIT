@@ -10,19 +10,20 @@
 </head>
 
 <body>
-
-  <nav><a href="/stockit"><span>STOCK</span>IT</a>
-    <div class="links-container"><a class="link" href="/stockit#market">MARKET</a><a class="link" href="/stockit#mobile">MOBILE APP</a><a class="link" href="/stockit#contact">SOCIALS</a></div>
-    <search>
-      <form action="/stockit/ticker" method="GET">
-        <button type="submit" aria-label="Submit search for ticker">
-          <iconify-icon inline icon="material-symbols:search-rounded"></iconify-icon>
-        </button>
-        <input type="text" id="symbol-search" name="symbol-search" placeholder="SEARCH BY TICKER" aria-label="Input symbol here to search" required />
-      </form>
-    </search>
-  </nav>
-
+  <header class="min-h">
+    <iconify-icon id="menu-toggle" icon="bitcoin-icons:menu-outline"></iconify-icon>
+    <nav><a href="/stockit"><span>STOCK</span>IT</a>
+      <div class="links-container"><a class="link" href="/stockit#market">MARKET</a><a class="link" href="/stockit#mobile">MOBILE APP</a><a class="link" href="/stockit#contact">SOCIALS</a></div>
+      <search>
+        <form action="/stockit/ticker" method="GET">
+          <button type="submit" aria-label="Submit search for ticker">
+            <iconify-icon inline icon="material-symbols:search-rounded"></iconify-icon>
+          </button>
+          <input type="text" id="symbol-search" name="symbol-search" placeholder="SEARCH BY TICKER" aria-label="Input symbol here to search" required />
+        </form>
+      </search>
+    </nav>
+  </header>
   <section id="overview">
     <h2><%= Symbol %></h2>
     <div class="container">

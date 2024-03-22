@@ -41,11 +41,11 @@ app.get("/stockit", (req, res) => {
 app.get("/stockit/ticker", (req, res) => {
   const { symbol } = req.query;
   fetch(
-    `https://www.alphavantage.co/query?function=OVERVIEW&symbol=ibm&apikey=demo`
+    `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${symbol}&apikey=${apiKey}`
   )
     .then((response) => response.json())
     .then((data) => {
-      if (data.hasOwnProperty("Name")) {
+      if (data.hasOwnProperty("Symbol")) {
         let errorMessage = "";
         let {
           Symbol,
@@ -81,7 +81,7 @@ app.get("/stockit/ticker", (req, res) => {
       } else {
         res.render("ticker", {
           errorMessage: "Data not found or API limit reached.",
-          Symbol: "OVERVIEW",
+          Symbol: "OUCH",
         });
       }
     })
