@@ -1,0 +1,19 @@
+{
+  "name": "stockit",
+  "version": "1.0.0",
+  "description": "Web app pulling from stock API",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Lane Andreas",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.3",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.2.2"
+  }
+}

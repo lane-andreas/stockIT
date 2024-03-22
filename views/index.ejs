@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>stockIT</title>
+  <link rel="stylesheet" href="/style.css">
+  <link href="https://api.fontshare.com/v2/css?f[]=familjen-grotesk@1&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <nav><a href="/stockit"><span>STOCK</span>IT</a>
+      <div class="links-container"><a class="link" href="#market">MARKET</a><a class="link" href="#mobile">MOBILE APP</a><a class="link" href="#contact">SOCIALS</a></div>
+      <search>
+        <form action="/stockit/ticker" method="GET">
+          <button type="submit" aria-label="Submit search for ticker">
+            <iconify-icon inline icon="material-symbols:search-rounded"></iconify-icon>
+          </button>
+          <input type="text" id="symbol-search" name="symbol" placeholder="SEARCH BY TICKER" aria-label="Input symbol here to search" required />
+        </form>
+      </search>
+    </nav>
+    <div class="container">
+      <div class="dec"></div>
+      <div id="follower"></div>
+      <h1>TRACK <span>AND</span> TRADE<br>STOCK <span>AND</span> CRYPTO</h1>
+    </div>
+  </header>
+  <section id="market">
+    <h2 class="gainers" data-selected="true">TOP GAINERS</h2>
+    <h2 class="losers" data-selected="false">TOP LOSERS</h2>
+    <h2 class="active" data-selected="false">MOST ACTIVELY TRADED</h2>
+    <div class="container">
+      <% if (gainers = []) { %>
+      <p id="error-message">API LIMIT REACHED<br><span>TRY AGAIN IN 24H</span></p>
+      <% } %>
+      <table>
+        <tbody>
+          <tr>
+            <th>TICKER</th>
+            <th>PRICE</th>
+            <th>24H CHANGE</th>
+            <th>VOLUME</th>
+          </tr>
+        </tbody>
+        <tbody class="gainers" data-selected="true">
+          <% gainers.forEach(stock => { %>
+          <tr data-ticker="<%= stock.ticker %>" class="ticker">
+            <td><%= stock.ticker %></td>
+            <td><%= stock.price %></td>
+            <td><%= stock.change_percentage %></td>
+            <td><%= stock.volume %></td>
+          </tr>
+          <% }); %>
+        </tbody>
+        <tbody class="losers" data-selected="false">
+          <% losers.forEach(stock => { %>
+          <tr data-ticker="<%= stock.ticker %>" class="ticker">
+            <td><%= stock.ticker %></td>
+            <td><%= stock.price %></td>
+            <td><%= stock.change_percentage %></td>
+            <td><%= stock.volume %></td>
+          </tr>
+          <% }); %>
+        </tbody>
+        <tbody class="active" data-selected="false">
+          <% active.forEach(stock => { %>
+          <tr data-ticker="<%= stock.ticker %>" class="ticker">
+            <td><%= stock.ticker %></td>
+            <td><%= stock.price %></td>
+            <td><%= stock.change_percentage %></td>
+            <td><%= stock.volume %></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-buttons">
+      <button class="updateTable gainers" data-target="gainers" data-selected="true"></button>
+      <button class="updateTable losers" data-target="losers" data-selected="false"></button>
+      <button class="updateTable active" data-target="active" data-selected="false"></button>
+    </div>
+  </section>
+  <section id="mobile">
+    <h2>TRADE ON THE <span>GO</span></h2>
+    <ul>
+      <li>
+        <h3>CONNECT YOUR ACCOUNT</h3>
+        <p>Use Trust Wallet, MetaMask, or your brokerage account to link with our platform.</p>
+      </li>
+      <li>
+        <h3>CHOOSE YOUR ASSETS</h3>
+        <p>Select stocks or crypto to trade, setting parameters like quantity, and price.</p>
+      </li>
+      <li>
+        <h3>EXECUTE YOUR TRADE</h3>
+        <p>Confirm transactions to buy or sell, leveraging our secure, seamless process.</p>
+      </li>
+      <li>
+        <h3>EXPAND YOUR PORTFOLIO</h3>
+        <p>Diversify by investing across stocks and cryptocurrencies on a unified platform.</p>
+      </li>
+      <li>
+        <h3>NAVIGATE THE MARKETPLACE</h3>
+        <p>Explore and curate your collection of investments, finding prime buying or selling opportunities.</p>
+      </li>
+      <li>
+        <h3>MANAGE YOUR INVESTMENTS</h3>
+        <p>Our tools simplify portfolio management, helping you Discover, Diversify, and Decide.</p>
+      </li>
+    </ul>
+  </section>
+  <section id="contact">
+    <div class="container">
+      <h2>CONNECT WITH <span>US</span></h2>
+      <p>Invest and manage all your assets at one place.</p>
+    </div>
+    <div class="socials-container">
+      <iconify-icon icon="bi:twitter-x"></iconify-icon>
+      <iconify-icon icon="bi:discord"></iconify-icon>
+      <iconify-icon icon="bi:facebook"></iconify-icon>
+      <iconify-icon icon="bi:instagram"></iconify-icon>
+      <iconify-icon icon="bi:youtube"></iconify-icon>
+    </div>
+    <footer>
+      <p>Privacy Policy</p>
+      <p>Terms of Use</p>
+    </footer>
+  </section>
+
+  <script src="/data.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+
+</body>
+
+</html>

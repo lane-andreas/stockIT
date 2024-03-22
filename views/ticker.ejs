@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>stockIT</title>
+  <link rel="stylesheet" href="/style.css">
+  <link href="https://api.fontshare.com/v2/css?f[]=familjen-grotesk@1&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <nav><a href="/stockit"><span>STOCK</span>IT</a>
+    <div class="links-container"><a class="link" href="/stockit#market">MARKET</a><a class="link" href="/stockit#mobile">MOBILE APP</a><a class="link" href="/stockit#contact">SOCIALS</a></div>
+    <search>
+      <form action="/stockit/ticker" method="GET">
+        <button type="submit" aria-label="Submit search for ticker">
+          <iconify-icon inline icon="material-symbols:search-rounded"></iconify-icon>
+        </button>
+        <input type="text" id="symbol-search" name="symbol-search" placeholder="SEARCH BY TICKER" aria-label="Input symbol here to search" required />
+      </form>
+    </search>
+  </nav>
+
+  <section id="overview">
+    <h2>IBM</h2>
+  </section>
+
+  <script src="/data.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+
+</body>
+
+</html>
