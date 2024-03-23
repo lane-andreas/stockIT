@@ -14,7 +14,7 @@ document.querySelectorAll(".updateTable").forEach((btn) => {
 document.querySelectorAll(".ticker").forEach((row) => {
   row.addEventListener("click", () => {
     const ticker = row.getAttribute("data-ticker");
-    window.location.href = `/stockit/ticker?symbol=${ticker}`;
+    window.location.href = `/ticker?symbol=${ticker}`;
   });
 });
 

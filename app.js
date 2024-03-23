@@ -9,10 +9,6 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
 
-const port = process.env.PORT || 3000;
-
-app.listen(port, () => console.log(`Server running on port ${port}`));
-
 const apiKey = "1W7U9ZEECSDBQE94";
 
 app.get("/", (req, res) => {
@@ -89,3 +85,5 @@ app.get("/ticker", (req, res) => {
       console.error("Error fetching data: ", error);
     });
 });
+
+module.exports = app;
