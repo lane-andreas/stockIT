@@ -15,7 +15,7 @@ app.listen(port, () => console.log(`Server running on port ${port}`));
 
 const apiKey = "1W7U9ZEECSDBQE94";
 
-app.get("/stockit", (req, res) => {
+app.get("/", (req, res) => {
   fetch(
     `https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&apikey=${apiKey}`
   )
@@ -38,7 +38,7 @@ app.get("/stockit", (req, res) => {
     });
 });
 
-app.get("/stockit/ticker", (req, res) => {
+app.get("/ticker", (req, res) => {
   const { symbol } = req.query;
   fetch(
     `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${symbol}&apikey=${apiKey}`
