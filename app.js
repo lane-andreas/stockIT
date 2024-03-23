@@ -76,7 +76,7 @@ app.get("/ticker", (req, res) => {
         });
       } else {
         res.render("ticker", {
-          errorMessage: "Data not found or API limit reached.",
+          errorMessage: "Data not available or API limit reached.",
           Symbol: "OUCH",
         });
       }

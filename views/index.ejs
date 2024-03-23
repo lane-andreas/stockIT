@@ -60,7 +60,7 @@
           <tr data-ticker="<%= stock.ticker %>" class="ticker">
             <td><%= stock.ticker %></td>
             <td><%= stock.price %></td>
-            <td class="<%= parseInt(stock.change_percentage) < 0 ? 'negative' : 'positive' %>"><%= stock.change_percentage %></td>
+            <td class="<%= parseFloat(stock.change_percentage) < 0 ? 'negative' : 'positive' %>"><%= stock.change_percentage %></td>
             <td><%= stock.volume %></td>
           </tr>
           <% }); %>
@@ -70,7 +70,7 @@
           <tr data-ticker="<%= stock.ticker %>" class="ticker">
             <td><%= stock.ticker %></td>
             <td><%= stock.price %></td>
-            <td class="<%= parseInt(stock.change_percentage) < 0 ? 'negative' : 'positive' %>"><%= stock.change_percentage %></td>
+            <td class="<%= parseFloat(stock.change_percentage) < 0 ? 'negative' : 'positive' %>"><%= stock.change_percentage %></td>
             <td><%= stock.volume %></td>
           </tr>
           <% }); %>
@@ -80,7 +80,7 @@
           <tr data-ticker="<%= stock.ticker %>" class="ticker">
             <td><%= stock.ticker %></td>
             <td><%= stock.price %></td>
-            <td class="<%= parseInt(stock.change_percentage) < 0 ? 'negative' : 'positive' %>"><%= stock.change_percentage %></td>
+            <td class="<%= parseFloat(stock.change_percentage) < 0 ? 'negative' : 'positive' %>"><%= stock.change_percentage %></td>
             <td><%= stock.volume %></td>
           </tr>
           <% }); %>
